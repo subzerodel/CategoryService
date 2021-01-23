@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcSE1Server";
+
+service Category {
+	rpc CreateCategory(CategoryCreate) returns (CategoryInfo);
+	rpc GetCategory(CategoryLookup) returns (CategoryInfo);
+	rpc AddProduct(ProductCreate) returns (ProductInfo);
+	rpc GetProductById(ProductLookup) returns (ProductInfo);
+	//rpc GetProductByCategoryId () returns (ProductInfo);
+}
+
+message CategoryLookup {
+	int32 id = 1;
+}
+
+message CategoryCreate {
+	string name = 1;
+	int32 parentCategoryId = 2;
+}
+
+message CategoryInfo {
+	int32 id = 1;
+	string name = 2;
+	int32 parentCategoryId = 3;
+}
+
+message ProductLookup {
+	int32 id = 1;
+}
+
+message ProductCreate {
+	string name = 1;
+	string description = 2;
+	string price = 3;
+	CategoryInfo category = 4;
+}
+
+message ProductInfo {
+	int32 id = 1;
+	string name = 2;
+	string description = 3;
+	string price = 4;
+	CategoryInfo category = 5;
+}
