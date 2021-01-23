@@ -1,1 +1,1 @@
-please check https://github.com/subzerodel/repositries
+please check https://github.com/subzerodel/repositories
